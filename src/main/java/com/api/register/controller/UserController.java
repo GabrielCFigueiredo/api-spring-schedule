@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UserController {
 
     @Autowired
@@ -29,5 +30,12 @@ public class UserController {
     public Usuario editarUsuario(@RequestBody Usuario user) {
         Usuario usuario = dao.save( user );
         return usuario;
+    }
+
+    @DeleteMapping("/{id}")
+    public Optional<Usuario> excluirUsuario(@PathVariable Long id) {
+    Optional<Usuario> usuario = dao.findById( id );
+    dao.deleteById( id );
+    return usuario;
     }
 }

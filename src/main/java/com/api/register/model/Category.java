@@ -2,7 +2,8 @@ package com.api.register.model;
 
 public enum Category {
     MAQUIAGEM,
-    MASSAGEM,
+    MASSAGEMRELAXANTE,
+    MASSAGEMMODELADORA,
     LIMPEZA,
     DRENAGEM
 }
